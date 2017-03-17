@@ -11,7 +11,9 @@ my own helper and libraray files for #PHP codeigniter framework
 
   Ex: Cotroller Contact_us.php.
 
-<?php
+    
+    <?php
+        
         defined('BASEPATH') OR exit('No direct script access allowed');
         class Contact_us extends CI_Controller {
             function __construct() {
@@ -33,7 +35,8 @@ my own helper and libraray files for #PHP codeigniter framework
               //$this->load->view('admin/about/index.php');
             }
           }
-?>
+       ?>
+       
 2) then in view call it where ever it required.
 
   Ex: <li class="<?=addActiveClass('contact')?>"> <a href="<?=base_url()?>Sitetwo/contact">Contact Us</a></li>
