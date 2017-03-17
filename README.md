@@ -9,8 +9,9 @@ my own helper and libraray files for #PHP codeigniter framework
  
 1) call is_logged_in() function in your controller
 
-  Ex: 
-    <?php
+  Ex: Cotroller Contact_us.php.
+
+<?php
         defined('BASEPATH') OR exit('No direct script access allowed');
         class Contact_us extends CI_Controller {
             function __construct() {
@@ -20,8 +21,8 @@ my own helper and libraray files for #PHP codeigniter framework
               $this->load->model('GenralModel');
               $this->load->library('session');
               is_logged_in();
-
-            }
+            } 
+            
             public function index() {
               if (!$this->GenralModel->getAll($this->tbl_name)) {
                 $this->load->view('admin/contactus/cms/contactus.php');
@@ -32,7 +33,7 @@ my own helper and libraray files for #PHP codeigniter framework
               //$this->load->view('admin/about/index.php');
             }
           }
-
+?>
 2) then in view call it where ever it required.
 
   Ex: <li class="<?=addActiveClass('contact')?>"> <a href="<?=base_url()?>Sitetwo/contact">Contact Us</a></li>
