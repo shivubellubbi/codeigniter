@@ -39,4 +39,8 @@ my own helper and libraray files for #PHP codeigniter framework
        
 2) then in view call it where ever it required.
 
-  Ex: <li class="<?=addActiveClass('contact')?>"> <a href="<?=base_url()?>Sitetwo/contact">Contact Us</a></li>
+  Ex: header.php.
+  
+  
+       here: <?=$someveriable?> is same as <?php echo $someveriable ?>
+       <li class="<?=addActiveClass('contact')?>"> <a href="<?=base_url()?>Sitetwo/contact">Contact Us</a></li>
