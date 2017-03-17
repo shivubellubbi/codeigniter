@@ -1,38 +1,36 @@
-# Codeigniter
-my own helper and libraray files for #PHP codeigniter framework
-1) is_logged_in Sesson check for logged in user.
-2) bootstrap active class
-
+# GenralModel
 # how to use
- load helper file in controler constructer or autoload in config folder file autoload.php.
- ex: $autoload['helper'] = array('url', 'my'); //here my helper file name is my_helper.php 
+ copy file GenralModel.php in your model directory i.e Application/model/
+  GenralModel.php file in controler constructer or autoload in config folder file autoload.php.
+ ex: $autoload['model'] = array('GenralModel'); //here my helper file name GenralModel.php
  
 1) call is_logged_in() function in your controller
 
-  Ex: Cotroller Contact_us.php.
+  Ex: Cotroller Offers.php.
 
-    
-    <?php
-        
+      <?php
         defined('BASEPATH') OR exit('No direct script access allowed');
-        class Contact_us extends CI_Controller {
+        
+        class Offers extends CI_Controller {
+        
+            private $tbl_name = 'tbl_name';
+	           private $id_name  = 'id_name';
+            
             function __construct() {
               parent::__construct();
               date_default_timezone_set('Asia/Calcutta');
               $this->load->library('upload');
-              $this->load->model('GenralModel');
+              $this->load->model('GenralModel'); // you can avoid it if you auto loaded
               $this->load->library('session');
               is_logged_in();
             } 
             
             public function index() {
-              if (!$this->GenralModel->getAll($this->tbl_name)) {
-                $this->load->view('admin/contactus/cms/contactus.php');
-                return;
-              } else {
-                $this->edit();
+               $data['offers'] = $this->GenralModel->getAll($this->tbl_name);
+               $this->load->view('admin/offers/index.php', $data);
               }
-              //$this->load->view('admin/about/index.php');
+            public function store() {
+               $this->GenralModel->store($this->tbl_name);
             }
           }
        ?>
